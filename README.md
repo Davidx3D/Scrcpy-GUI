@@ -12,24 +12,21 @@ This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 # Features 
 ![Screenshot (2)](https://user-images.githubusercontent.com/49514654/157193691-7017fe17-2f4c-4281-8455-4e7441172903.png)
 
-- **Turn Off Screen**
-- **Stay Awake**
-- **No Control (Currently Not Working)**
-- **Turn Phone Screen Off On Close**
-- **Show Touches (Not Working Also)**
-- **Full Screen Mode**
-- **Shortcut Mod (Default Is Left Alt *Sorry*)**
-- **Max Bitrate (1-99MB)**
-- **Max Screen Size (Any Above 100)**
+- Turn Off Screen
+- Stay Awake
+- No Control (Currently Not Working)
+- Turn Phone Screen Off On Close
+- Show Touches (Not Working Also)
+- Full Screen Mode
+- Shortcut Mod (Default Is Left Alt *Sorry*)
+- Max Bitrate (1-99MB)
+- Max Screen Size (Any Above 100)
 
 # Requirements
 
 Android Device With API 21 (Android 5.0)
 [**Adb Debugging**](https://developer.android.com/studio/command-line/adb.html#Enabling) Must Be Enabled
 
-Make sure you enabled adb debugging on your device(s).
-
-On some devices, you also need to enable an additional option to control it using keyboard and mouse.
 
 
 # LINUX
