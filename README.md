@@ -51,7 +51,7 @@ Its Not Perfect, But It Works
 
 > # **LICENCE** 
 
-Copyright (C) 2019-2022 **SoberMind Works**
+2022 **SoberMind Works**
 
 [**GNU General Public License (GPL) version 3**](http://www.gnu.org/licenses/gpl.html) or Later.
 You Are Free To Distribute, Modify or Even Sell The Software, Insofar Aslong As You Respect The GPLv3 License.
