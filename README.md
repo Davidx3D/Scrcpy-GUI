@@ -1,5 +1,5 @@
 # Scrcpy-GUI
-GUI For Scrcpy
+GUI For Scrcpy For * ***Linux And Windows*** *
 
 SCRCPY GUI v1.1 Released
 
@@ -33,7 +33,7 @@ Scrcpy Will Still Work As Intended But You Can Click Scrcpy-GUI And Use It With 
 
 
 
-**(***Jre(Java Runtime Environment) 1.4.0 or Newer Needed***)**
+** ***Jre (Java Runtime Environment) 1.4.0 or Newer Needed*** **
 
 Its Not Perfect, But It Works 
 
