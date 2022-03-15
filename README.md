@@ -11,9 +11,9 @@ This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 ![Screenshot (6)](https://user-images.githubusercontent.com/49514654/158369646-d37b1bb5-6f1d-41ba-9b5c-8e46a60a0996.png)
 - Turn Off Screen
 - Stay Awake
-- No Control (Currently Not Working)
+- No Control (Currently Working On v1.1)
 - Turn Phone Screen Off On Close
-- Show Touches (Not Working Also)
+- Show Touches (Working On v1.1)
 - Full Screen Mode
 - Shortcut Mod (Default Is Left Alt *Sorry*)
 - Max Bitrate (1-99MB)
