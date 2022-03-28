@@ -16,47 +16,36 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author SoberMind Works
- */
-
+ //@author SoberMind Works
 
 public class gui extends javax.swing.JFrame {
-
 
     public gui() {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        
-        
-         
-           try {
-        	   File Scrcpy = new File("/snap/scrcpy/current/usr/local/bin/scrcpy");
-        	   File Terminal = new File("/usr/bin/xterm");
+        try {
+            File Scrcpy = new File("/snap/scrcpy/current/usr/local/bin/scrcpy");
+            File Terminal = new File("/usr/bin/xterm");
         	 
-        	 if (Terminal.exists()){
-        		 platform.setText("Linux Detected");
+        if (Terminal.exists()){
+             platform.setText("Linux Detected");
         		 
-         } else {
-	   			 platform.setText("Windows Detected"); 
+       } else {
+	   platform.setText("Windows Detected"); 
 
-        	}
-
-
+       }
    } 	catch(Exception e) {
-	   			e.printStackTrace();
+	      e.printStackTrace();
 }
          
   try {
-	   String ss = null;
+       String ss = null;
        Process p = Runtime.getRuntime().exec("cmd.exe /c adb devices");
-        
        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
        
        while ((ss = r.readLine()) != null) {
-           PrintStream printStream = new PrintStream(new CustomOutputStream(print));
+           PrintStream printStream = new PrintStream(new Devices(print));
            System.setOut(printStream);
            System.setErr(printStream);
     	   System.out.println(ss);
@@ -72,8 +61,6 @@ public class gui extends javax.swing.JFrame {
   		}   
     }
 
- 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -115,6 +102,9 @@ public class gui extends javax.swing.JFrame {
         lbl14 = new javax.swing.JLabel();
         adv = new javax.swing.JTextField();
         lbl15 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        print1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -336,25 +326,33 @@ public class gui extends javax.swing.JFrame {
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("Display Output");
+
+        print1.setBackground(new java.awt.Color(51, 51, 51));
+        print1.setColumns(20);
+        print1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        print1.setForeground(new java.awt.Color(204, 204, 204));
+        print1.setRows(5);
+        jScrollPane2.setViewportView(print1);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 121, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(run, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(run, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl2)
                             .addComponent(lbl3)
@@ -368,7 +366,6 @@ public class gui extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl5)
                                     .addComponent(lbl6)
                                     .addComponent(lbl7)
                                     .addComponent(lbl8)
@@ -384,77 +381,86 @@ public class gui extends javax.swing.JFrame {
                                         .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(10, 10, 10)
                                         .addComponent(lbl12))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(lbl4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                    .addComponent(lbl4)
+                                    .addComponent(lbl5))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane2))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl2)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl3)
-                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lbl2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl3)
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(lbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(off))
+                                .addComponent(on)
+                                .addGap(11, 11, 11))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(lbl5)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(no)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lbl6)))
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(lbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(off))
-                        .addComponent(on)
-                        .addGap(11, 11, 11))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl7))
+                            .addComponent(offcl))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(show)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lbl8)))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lbl9))
+                            .addComponent(fs))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lbl10))
+                            .addComponent(shortmod))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel11)
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bitrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addComponent(lbl5)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(no)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl6)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl7))
-                    .addComponent(offcl))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(show)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl8)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl9))
-                    .addComponent(fs))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbl10))
-                    .addComponent(shortmod))
-                .addGap(6, 6, 6)
-                .addComponent(jLabel11)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bitrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel13)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13)
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13)
                 .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -471,10 +477,10 @@ public class gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,7 +527,7 @@ public class gui extends javax.swing.JFrame {
   if (Off) {
     try{ 
         label.setText("-S");
-    	String FILE ="temp.txt";
+    	String FILE ="scripts.txt";
     	FileWriter test = new FileWriter(FILE, true);
     	test.write(" -S");
     	test.close();    
@@ -532,7 +538,7 @@ public class gui extends javax.swing.JFrame {
 	
     try{ 
         label.setText(Label+" -w");
-    	String FILE ="temp.txt";
+    	String FILE ="scripts.txt";
     	FileWriter test = new FileWriter(FILE, true);
     	test.write(" -w");
     	test.close();   
@@ -541,19 +547,19 @@ public class gui extends javax.swing.JFrame {
         }
 }  if (No) {
 	
-      try{ 
-    	  String FILE ="temp.txt";
-    	  FileWriter test = new FileWriter(FILE, true);
-    	  test.write(" --no-control");
-    	  test.close();  
+    try{ 
+ 	String FILE ="scripts.txt";
+    	FileWriter test = new FileWriter(FILE, true);
+    	test.write(" --no-control");
+    	test.close();  
         }catch (Exception x) {
         	
         }
        
 }  if (Offcl) {
 	
-		try{ 
-    	   String FILE ="temp.txt";
+    try{ 
+    	   String FILE ="scripts.txt";
     	   FileWriter test = new FileWriter(FILE, true);	
     	   test.write(" --power-off-on-close");
     	   test.close();  
@@ -563,7 +569,7 @@ public class gui extends javax.swing.JFrame {
 } if (Show) {
 	
 	  try{ 
-		  String FILE ="temp.txt";
+		  String FILE ="scripts.txt";
 		  FileWriter test = new FileWriter(FILE, true);
 		  test.write(" --show-touches");
 		  test.close(); 
@@ -574,7 +580,7 @@ public class gui extends javax.swing.JFrame {
 } if (Fs) {
 	
 	  try{ 
-		  String FILE ="temp.txt";
+		  String FILE ="scripts.txt";
 		  FileWriter test = new FileWriter(FILE, true);
 		  test.write(" -f");
 		  test.close();
@@ -585,7 +591,7 @@ public class gui extends javax.swing.JFrame {
 } if (Short) {
 	
 	  try{ 
-		  String FILE ="temp.txt";
+		  String FILE ="scripts.txt";
 		  FileWriter test = new FileWriter(FILE, true);
 		  test.write(" --shortcut-mod=lalt");
 		  test.close();
@@ -598,100 +604,96 @@ public class gui extends javax.swing.JFrame {
 } else if (Bit.matches("[0-9]+") && Bit.length() < 3) {
 	
         try{  
-        	String FILE ="temp.txt";
+        	String FILE ="scripts.txt";
         	FileWriter test = new FileWriter(FILE, true);
         	test.write(" -b "+Bit+"M");
             test.close();
             
         }catch (Exception x) {
         }
-} else {
-
-        JOptionPane.showMessageDialog(null, "Numbers Below 100 For Bit Rate (Numbers Only)");
+      } else {
+              JOptionPane.showMessageDialog(null, "Numbers Below 100 For Bit Rate (Numbers Only)");
     
 } if (Max.equals("")){
 
 } else if (Max.matches("[0-9]+") && Max.length() > 2) {
 	
         try{ 
-        	
-        	String FILE ="temp.txt";
-        	FileWriter test = new FileWriter(FILE, true);
+            String FILE ="scripts.txt";
+            FileWriter test = new FileWriter(FILE, true);
             test.write(" --max-size "+Max);
             test.close();
             
         } catch (Exception x) {
-        	
         }
+      } else {
+             JOptionPane.showMessageDialog(null, "Numbers Above 99 Only For Max Size (Numbers Only)");
 }
-else {
-    JOptionPane.showMessageDialog(null, "Numbers Above 99 Only For Max Size (Numbers Only)");
-}
-	try {
+
+
+//Below Is The Important Stuff
+
+
+try {
+     BufferedReader Test = new BufferedReader(new FileReader(new File("scripts.txt")));//Reads The File Where All The Changes Are Made
+     String mods = "";
 			
-			BufferedReader Test = new BufferedReader(new FileReader(new File("temp.txt")));//Reads The File Where All The Changes Are Made
-			String mods = "";
-			
-			while((mods = Test.readLine()) != null)
-				
-			{
-				
-			 label.setText("Used Scripts : Scrcpy "+ mods+ " "+Adv); // Prints Selections On Label
-                         
-			 File Terminal = new File("/usr/bin/xterm");//Linux Terminal (Not Default So It Looks Weird)
+     while((mods = Test.readLine()) != null){
+	   label.setText("Used Scripts : Scrcpy "+ mods+ " "+Adv); // Prints Selections On Label
+           File Terminal = new File("/usr/bin/xterm");//Linux Terminal (Not Default So It Looks Weird)
 			 
-	 if (Terminal.exists()){
+     if (Terminal.exists()){
+        try {
+	     Runtime r = Runtime.getRuntime();
+	     String[] cmdArray = {"xterm", "-e", "scrcpy" + mods + " "+Adv +" ; le_exec"};//Opens Terminal And Run Scrcpy On Linux
+	     r.exec(cmdArray).waitFor();
+             
+      } catch (InterruptedException ex){
+               ex.printStackTrace();
+               
+      } catch (IOException ex) {
+	       ex.printStackTrace();
+      }
 				 
-			 try {
-				 Runtime r = Runtime.getRuntime();
-				 String[] cmdArray = {"xterm", "-e", "scrcpy" + mods + " "+Adv +" ; le_exec"};//Opens Terminal And Run Scrcpy On Linux
-				 r.exec(cmdArray).waitFor();
-					 
-			 } catch (InterruptedException ex){
-				 ex.printStackTrace();
-			 } catch (IOException ex) {
-				 ex.printStackTrace();
-			 }
-				 
-				 
-   }	else { Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + mods + " "+Adv); //Opens Cmd And Runs Scrcpy With Added Scripts
-
-                         
-                         try {
-     
-                        	 BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                        	 String line;
-                        	 while (true) {
-                        	 line = r.readLine();
-                        	 
-                        if  (line == null) { break; 
-           
-            } 
-
+   } else { Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + mods + " "+Adv); //Opens Cmd And Runs Scrcpy With Added Scripts
+       String sr = null;
+       BufferedReader rs = new BufferedReader(new InputStreamReader(p.getInputStream()));
+       
+       while ((sr = rs.readLine()) != null) {
+           PrintStream printStream = new PrintStream(new Output(print1));
+           System.setOut(printStream);
+           System.setErr(printStream);
+    	   System.out.println(sr);
+           print1.setEditable(false);
+           print1.setLineWrap(true);
         }
 
-
-   } 	catch(Exception e) {e.printStackTrace();
+        try {
+             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             String line;
+             while (true) {
+             line = r.readLine();
+                        	 
+        if  (line == null) { break; 
+            } 
+        }
+   } catch(Exception e) {e.printStackTrace();
 } 
-                                               
-                         File we = new File("temp.txt"); 
-                         PrintWriter writer = new PrintWriter(we);
-                         writer.print("");
-                         writer.close();
-                         
+           File we = new File("scripts.txt"); 
+           PrintWriter writer = new PrintWriter(we);
+           writer.print("");//To Clear The File Used To Store Scripts...
+           writer.close();
                      }
            }
-                        
-
-                        
-		} catch (FileNotFoundException e) {
-			System.out.println("Well Fuck");//Well If This Fails Then Uhm The Scripts Wont Be Applied
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Check Output Errors");//Just Incase There Is a Problem Viewing The File
-			e.printStackTrace();
-		}              
-              // TODO add your handling code here:
+   } catch (FileNotFoundException e) {
+            System.out.println("Well Fuck");//Well If This Fails Then Uhm The Scripts Wont Be Applied
+            e.printStackTrace();
+            
+   } catch (IOException e) {
+            System.out.println("Check Output Errors");//Just Incase There Is a Problem Viewing The File
+            e.printStackTrace();
+            
+   }              
     }//GEN-LAST:event_runActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -709,11 +711,7 @@ else {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -730,9 +728,7 @@ else {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new gui().setVisible(true);
@@ -748,12 +744,14 @@ else {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel label;
     private javax.swing.JLabel lbl10;
     private javax.swing.JLabel lbl11;
@@ -776,6 +774,7 @@ else {
     private javax.swing.JCheckBox on;
     private javax.swing.JLabel platform;
     private javax.swing.JTextArea print;
+    private javax.swing.JTextArea print1;
     private javax.swing.JButton run;
     private javax.swing.JCheckBox shortmod;
     private javax.swing.JCheckBox show;
