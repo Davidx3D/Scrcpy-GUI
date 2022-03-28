@@ -138,7 +138,7 @@ public class gui extends javax.swing.JFrame {
         print.setEditable(false);
         print.setBackground(new java.awt.Color(51, 51, 51));
         print.setColumns(20);
-        print.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        print.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         print.setForeground(new java.awt.Color(204, 204, 204));
         print.setRows(5);
         jScrollPane1.setViewportView(print);
@@ -278,11 +278,11 @@ public class gui extends javax.swing.JFrame {
             }
         });
 
-        label.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         label.setForeground(new java.awt.Color(204, 204, 204));
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 204, 255), 2));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         lbl13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         lbl13.setForeground(new java.awt.Color(204, 204, 204));
@@ -383,7 +383,7 @@ public class gui extends javax.swing.JFrame {
                                         .addComponent(lbl12))
                                     .addComponent(lbl4)
                                     .addComponent(lbl5))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2)
@@ -511,7 +511,7 @@ public class gui extends javax.swing.JFrame {
 
     private void runActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runActionPerformed
 
-    	boolean Off = off.isSelected();
+        boolean Off = off.isSelected();
     	boolean On = on.isSelected();
     	boolean No = no.isSelected();
     	boolean Offcl = offcl.isSelected();
@@ -559,43 +559,42 @@ public class gui extends javax.swing.JFrame {
 }  if (Offcl) {
 	
     try{ 
-    	   String FILE ="scripts.txt";
-    	   FileWriter test = new FileWriter(FILE, true);	
-    	   test.write(" --power-off-on-close");
-    	   test.close();  
+    	String FILE ="scripts.txt";
+    	FileWriter test = new FileWriter(FILE, true);	
+    	test.write(" --power-off-on-close");
+    	test.close();  
         }catch (Exception x) {
         	
         }
 } if (Show) {
 	
-	  try{ 
-		  String FILE ="scripts.txt";
-		  FileWriter test = new FileWriter(FILE, true);
-		  test.write(" --show-touches");
-		  test.close(); 
+    try{ 
+        String FILE ="scripts.txt";
+	FileWriter test = new FileWriter(FILE, true);
+	test.write(" --show-touches");
+        test.close(); 
         }catch (Exception x) {
         	
         }
         
 } if (Fs) {
 	
-	  try{ 
-		  String FILE ="scripts.txt";
-		  FileWriter test = new FileWriter(FILE, true);
-		  test.write(" -f");
-		  test.close();
+    try{ 
+        String FILE ="scripts.txt";
+	FileWriter test = new FileWriter(FILE, true);
+        test.write(" -f");
+        test.close();
         }catch (Exception x) {
 
         } 
     
 } if (Short) {
 	
-	  try{ 
-		  String FILE ="scripts.txt";
-		  FileWriter test = new FileWriter(FILE, true);
-		  test.write(" --shortcut-mod=lalt");
-		  test.close();
-            
+    try{ 
+	String FILE ="scripts.txt";
+	FileWriter test = new FileWriter(FILE, true);
+        test.write(" --shortcut-mod=lalt");
+        test.close();
         }catch (Exception x) {
         	
         }
@@ -603,12 +602,11 @@ public class gui extends javax.swing.JFrame {
 
 } else if (Bit.matches("[0-9]+") && Bit.length() < 3) {
 	
-        try{  
-        	String FILE ="scripts.txt";
-        	FileWriter test = new FileWriter(FILE, true);
-        	test.write(" -b "+Bit+"M");
-            test.close();
-            
+    try{  
+        String FILE ="scripts.txt";
+        FileWriter test = new FileWriter(FILE, true);
+        test.write(" -b "+Bit+"M");
+        test.close();
         }catch (Exception x) {
         }
       } else {
@@ -618,12 +616,11 @@ public class gui extends javax.swing.JFrame {
 
 } else if (Max.matches("[0-9]+") && Max.length() > 2) {
 	
-        try{ 
-            String FILE ="scripts.txt";
-            FileWriter test = new FileWriter(FILE, true);
-            test.write(" --max-size "+Max);
-            test.close();
-            
+    try{ 
+        String FILE ="scripts.txt";
+        FileWriter test = new FileWriter(FILE, true);
+        test.write(" --max-size "+Max);
+        test.close();
         } catch (Exception x) {
         }
       } else {
@@ -660,10 +657,12 @@ try {
        BufferedReader rs = new BufferedReader(new InputStreamReader(p.getInputStream()));
        
        while ((sr = rs.readLine()) != null) {
+           label.setText("Used Scripts : Scrcpy "+ mods+ " "+Adv); // Prints Selections On Label
+
            PrintStream printStream = new PrintStream(new Output(print1));
            System.setOut(printStream);
            System.setErr(printStream);
-    	   System.out.println(sr);
+    	   System.out.println(sr);//Shows Progress And Potential Errors On a Field
            print1.setEditable(false);
            print1.setLineWrap(true);
         }
@@ -686,7 +685,7 @@ try {
                      }
            }
    } catch (FileNotFoundException e) {
-            System.out.println("Well Fuck");//Well If This Fails Then Uhm The Scripts Wont Be Applied
+            System.out.println("File With Scripts Still Has Content or Not Found");//Well If This Fails Then The File That Stores Scripts Isnt Cleared
             e.printStackTrace();
             
    } catch (IOException e) {
@@ -697,14 +696,17 @@ try {
     }//GEN-LAST:event_runActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        File we = new File("test.txt");
+try {File we = new File("scripts.txt");
 
-        we.deleteOnExit();
-        if (we.delete()) {
-        }
-        else {
-            System.out.println("Failed");}
-        	System.exit(0);
+     PrintWriter writer = new PrintWriter(we);
+     writer.print("");//To Clear The File Used To Store Scripts...
+     writer.close();}
+
+catch (FileNotFoundException e) {
+       System.out.println("File With Scripts Still Has Content or Not Found");//Well If This Fails Then The File That Stores Scripts Isnt Cleared
+       e.printStackTrace();
+   }
+       System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
     /**
