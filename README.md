@@ -11,7 +11,8 @@ This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 
 ![Screenshot (1)](https://user-images.githubusercontent.com/49514654/160384961-6945981d-684f-4d18-9e63-909565a51d4a.png)
 Added a Panel To Add Various Scripts Not Provided By Default, And An Output Panel To View The Console **(Not User Interactable)**
-Device View Also Added To View Current Connected Adb Devices **(Only Detects Devices Added Before App Was Launched)**
+
+,Device View Also Added To View Current Connected Adb Devices **(Only Detects Devices Added Before App Was Launched)**
 
 # Features 
 ![Screenshot (6)](https://user-images.githubusercontent.com/49514654/158369646-d37b1bb5-6f1d-41ba-9b5c-8e46a60a0996.png)
