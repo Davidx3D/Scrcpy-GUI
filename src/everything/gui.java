@@ -14,6 +14,57 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
+
+
+
+import java.io.IOException;
+import java.io.OutputStream;
+import javax.swing.JTextArea;
+
+//@author SoberMind Works
+ class Devices extends OutputStream {
+    private JTextArea print;
+
+
+    public Devices(JTextArea textArea) {
+        this.print = textArea;
+
+    }
+
+ 
+    public void write(int b) throws IOException {
+        
+        print.append(String.valueOf((char)b));// redirects data to the text area
+        
+        print.setCaretPosition(print.getDocument().getLength());// scrolls the text area to the end of data
+        
+       
+        print.update(print.getGraphics());// keeps the textArea up to date
+        
+    }
+}
+
+class Output extends OutputStream {
+    private JTextArea print1;
+
+
+    public Output(JTextArea textArea) {
+        this.print1 = textArea;
+
+    }
+
+ 
+    public void write(int b) throws IOException {
+        
+        print1.append(String.valueOf((char)b));// redirects data to the text area
+        
+        print1.setCaretPosition(print1.getDocument().getLength());// scrolls the text area to the end of data
+        
+       
+        print1.update(print1.getGraphics());// keeps the textArea up to date
+        
+    }
+}
  //@author SoberMind Works
 
 public class gui extends javax.swing.JFrame {
@@ -671,10 +722,10 @@ ActionListener task = new ActionListener() {
                 timer.start();
 
 try {
-     BufferedReader scripts = new BufferedReader(new FileReader(new File("scripts.txt")));//Reads The File Where All The Changes Are Made
+     BufferedReader Test = new BufferedReader(new FileReader(new File("scripts.txt")));//Reads The File Where All The Changes Are Made
      String mods = "";
 			
-     while((mods = scripts.readLine()) != null){
+     while((mods = Test.readLine()) != null){
            File Terminal = new File("/usr/bin/xterm");//Linux Terminal (Not Default So It Looks Weird)
 			 
      if (Terminal.exists()){
