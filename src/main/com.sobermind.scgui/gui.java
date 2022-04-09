@@ -1,4 +1,4 @@
-package everything;
+package app;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +13,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-
-
+import app.Platform;
 
 
 import java.io.IOException;
@@ -104,10 +103,10 @@ public class gui extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         try {
-            File Scrcpy = new File("/snap/scrcpy/current/usr/local/bin/scrcpy");
+            File Scrcpy = new File("usr/local/bin/scrcpy");
             File Terminal = new File("/usr/bin/xterm");
         	 
-        if (Terminal.exists()){
+        if (Platform.isLinux){
              platform.setText("Linux Detected");
         		 
        } else {
@@ -802,6 +801,7 @@ catch (FileNotFoundException e) {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        System.getProperties().list(System.out);
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
