@@ -1,7 +1,7 @@
 # Scrcpy-GUI
 GUI For Scrcpy For * ***Linux And Windows*** *
 
-SCRCPY GUI v1.1 Released
+SCRCPY GUI v1.2 Released
 
 (And Yes I Know Swing Isn't Pretty For The Gui But Functionality Is What I Aimed For Since Free Time Is Scarce For Me)
 
