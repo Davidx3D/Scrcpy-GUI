@@ -1,8 +1,7 @@
-module com.sobermind.scgui {
+module com.sobermind.works {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
 
-    opens com.sobermind.scgui to javafx.fxml;
-    exports com.sobermind.scgui;
+    opens com.sobermind.works to javafx.fxml;
+    exports com.sobermind.works;
 }

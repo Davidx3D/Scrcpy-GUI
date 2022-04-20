@@ -1,4 +1,4 @@
-package com.sobermind.scgui;
+package com.sobermind.works;
 
 //Platform class to find OS Based on the one in Dart
 public class OS{

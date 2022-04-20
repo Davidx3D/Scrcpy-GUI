@@ -1,4 +1,4 @@
-package com.sobermind.scgui;
+package com.sobermind.works;
 
 import java.io.InputStream;
 import java.io.OutputStream;
