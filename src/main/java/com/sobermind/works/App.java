@@ -1,35 +1,44 @@
 package com.sobermind.works;
 
-import java.io.BufferedReader;
+import com.sun.javafx.stage.EmbeddedWindow;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 
 /**
  * SoberMind Works
  */
 
 public class App extends Application {
-    @FXML private TextArea output;
-    @FXML private TextArea devices;
-    
+
     private static Scene scene;
+    private static Scene scene1;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 750, 650);
-        stage.setTitle("Screen Copy");
+    public void start(Stage stage) throws IOException, InterruptedException {
+
+        scene = new Scene(loadFXML("primary"), 947, 699);
+        stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.getIcons().add(new Image("file:icon.png"));
         stage.setScene(scene);
         stage.show();
+
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
     }
+
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

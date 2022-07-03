@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ddmlib-25.2.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/Files/ddmlib/ddmlib-25.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
