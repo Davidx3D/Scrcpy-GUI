@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="699.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sobermind.works.Controller">
+      <padding>
+         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+      </padding>
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36363600" height="126.0" layoutX="79.0" layoutY="8.0" stroke="#006bff" strokeType="INSIDE" width="860.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="549.0" layoutX="79.0" layoutY="143.0" stroke="#006bff" strokeType="INSIDE" width="860.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="684.0" layoutX="9.0" layoutY="8.0" stroke="#006bff" strokeType="INSIDE" width="62.0" />
+         <Text layoutX="89.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scrcpy-GUI v1.4.1">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+         </Text>
+         <Text layoutX="88.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Based On Scrcpy v1.24 By Genymobile (Rom1v)*">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="12.0" />
+            </font>
+         </Text>
+         <Text layoutX="88.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection Type">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font>
+         </Text>
+         <JFXRadioButton fx:id="wired" layoutX="88.0" layoutY="186.0" onAction="#onWired" text="Wired (Default)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXRadioButton>
+         <JFXRadioButton fx:id="wireless" layoutX="232.0" layoutY="187.0" onAction="#onWireless" text="Wireless (Wi-Fi)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXRadioButton>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ad9c9c00" height="419.0" layoutX="88.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="176.0" layoutX="513.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+         <TextField fx:id="devip" layoutX="519.0" layoutY="181.0" prefHeight="26.0" prefWidth="155.0" promptText="Type Here" />
+         <TextField fx:id="port" layoutX="692.0" layoutY="181.0" prefHeight="26.0" prefWidth="114.0" promptText="Type Here" />
+         <Label fx:id="iplabel" layoutX="519.0" layoutY="158.0" text="Device IP (e.g 192.168.x.x)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Label>
+         <Label fx:id="portlabel" layoutX="692.0" layoutY="158.0" text="Port (Default: 5555)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Label>
+         <Label layoutX="520.0" layoutY="221.0" text="Advanced Panel">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="520.0" layoutY="240.0" text="*Add Custom Scripts Ontop Of The Optional Ones Provided*" textFill="#fc7272">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="11.0" />
+            </font>
+         </Label>
+         <TextField fx:id="advpanel" layoutX="519.0" layoutY="264.0" prefHeight="26.0" prefWidth="405.0" promptText="Type Custom Scripts Here" />
+         <Label layoutX="520.0" layoutY="298.0" text="*Leave Empty If Default Options Are Enough*" textFill="#fc7272">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="11.0" />
+            </font>
+         </Label>
+         <Label layoutX="520.0" layoutY="315.0" text="Audio Capture">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="520.0" layoutY="337.0" text="*Captures Audio Via Bluetooth (A2DP SNK) Or Sndcpy*" textFill="#6a74ff">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="11.0" />
+            </font>
+         </Label>
+         <Label layoutX="512.0" layoutY="393.0" text="Display Output">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font>
+         </Label>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="214.0" layoutX="513.0" layoutY="418.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+         <JFXTextArea fx:id="output" focusColor="#38383800" layoutX="516.0" layoutY="418.0" prefHeight="214.0" prefWidth="411.0" unFocusColor="#38383800" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="119.0" layoutX="513.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+         <JFXTextArea fx:id="devices" focusColor="#38383800" layoutX="516.0" layoutY="8.0" prefHeight="119.0" prefWidth="411.0" unFocusColor="#38383800" />
+      <Label layoutX="98.0" layoutY="221.0" text="Scrcpy Settings">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="240.0" text="*Only Select Options You Need*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="offscrn" layoutX="97.0" layoutY="268.0" text="Turn Off Screen">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </JFXCheckBox>
+      <Label layoutX="116.0" layoutY="291.0" text="*Turns Off Screen On Physical Device*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="stay" layoutX="97.0" layoutY="314.0" text="Stay Awake">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXCheckBox>
+      <Label layoutX="116.0" layoutY="337.0" text="*Prevents Device From Sleeping*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="offcl" layoutX="97.0" layoutY="357.0" text="Turn Off Screen On Close">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXCheckBox>
+      <Label layoutX="116.0" layoutY="380.0" text="*Turns Phone Screen Off When Scrcpy Closes*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="showt" layoutX="97.0" layoutY="401.0" text="Show Touches">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXCheckBox>
+      <Label layoutX="116.0" layoutY="424.0" text="*Show Physical Touches &amp; Clicks On Screen*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="fsmode" layoutX="97.0" layoutY="440.0" text="Fullscreen Mode">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXCheckBox>
+      <Label layoutX="116.0" layoutY="463.0" text="*Start Scrcpy In Full Screen Mode*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="shortmod" layoutX="97.0" layoutY="479.0" text="Shortcut Mod">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></JFXCheckBox>
+      <Label layoutX="116.0" layoutY="502.0" text="*Adds Changes Shortcut Key (Default = Left Alt)*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="524.0" text="Max Bitrate (MB)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bitrate" layoutX="116.0" layoutY="547.0" prefHeight="23.0" prefWidth="115.0" promptText="Type Here" />
+      <Label layoutX="116.0" layoutY="576.0" text="Max Screen Size">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="maxsize" layoutX="116.0" layoutY="599.0" prefHeight="23.0" prefWidth="115.0" promptText="Type Here" />
+      <Label layoutX="242.0" layoutY="551.0" text="*Leave Empty If No Change*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="runbtn" buttonType="RAISED" layoutX="782.0" layoutY="640.0" onAction="#onRunbtn" prefHeight="39.0" prefWidth="86.0" ripplerFill="#856dff" style="-fx-background-color: #856dff;" text="Run Scrcpy" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="ext" buttonType="RAISED" layoutX="878.0" layoutY="640.0" onAction="#onExitbtn" prefHeight="39.0" prefWidth="56.0" ripplerFill="#f84444" style="-fx-background-color: #f84444;" text="Exit" textFill="WHITE" />
+      <ImageView fitHeight="48.0" fitWidth="147.0" layoutX="92.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="242.0" layoutY="605.0" text="*Leave Empty If No Change*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="applicable" layoutX="816.0" layoutY="188.0" text="*Only If Applicable*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="bt" layoutX="523.0" layoutY="358.0" onAction="#onBT" text="Bluetooth (A2DP SNK)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+         <selectedColor>
+            <Color red="0.3157285451889038" green="0.35871508717536926" blue="0.9605262875556946" />
+         </selectedColor>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="snd" layoutX="692.0" layoutY="358.0" onAction="#onSndcpy" text="Sndcpy (Android 10+)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+         <selectedColor>
+            <Color red="0.9868420958518982" green="0.5290570259094238" blue="0.22386695444583893" />
+         </selectedColor>
+      </JFXRadioButton>
+      </children></AnchorPane>
