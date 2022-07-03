@@ -788,6 +788,26 @@ public class Main extends javax.swing.JFrame {
         String Bit = BitrateEditable.getText();
         String Max = MaxScreenEditable.getText();
         String Adv = AdvancedEditable.getText();
+        String IP  = ip.getText();
+        String Port= port.getText();
+
+        if (IP!= "") {
+            try {
+                String FILE ="scripts.txt";
+                FileWriter Script = new FileWriter(FILE, true);
+                Script.write(" --tcpip="+IP);
+                Script.close();
+            } catch (Exception x) {}
+
+        } else if (Port!= "") {
+            try {
+                String FILE ="scripts.txt";
+                FileWriter Script = new FileWriter(FILE, true);
+                Script.write(" --tcpip="+IP+":"+Port);
+                Script.close();
+            } catch (Exception x) {}
+
+        }
 
         if (Off) {
             try{
