@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Scrcpy-GUI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Scrcpy_GUI_jar</output-path>
+    <root id="archive" name="Scrcpy-GUI.jar">
+      <element id="module-output" name="Scrcpy-GUI" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/ddmlib-25.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/jfoenix-9.0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/13/javafx-base-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/annotations-25.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/13/javafx-base-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/13/javafx-controls-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/common-25.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/kxml2-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/target/Files/ddmlib/guava-18.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
