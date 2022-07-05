@@ -2,7 +2,6 @@ package com.sobermind.works;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.util.Optional;
 
 public class Audio {
@@ -33,7 +32,6 @@ public class Audio {
         if (result.get() == ButtonType.OK){
 
             Bluetooth();
-
         }
     }
     public static void SndCon() {
@@ -48,7 +46,6 @@ public class Audio {
 
         Sndcpy();
         }
-
     }
 }
 
