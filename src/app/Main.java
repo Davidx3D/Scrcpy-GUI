@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -778,206 +781,60 @@ public class Main extends javax.swing.JFrame {
 
     private void RunButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunButtonActionPerformed
 
-        boolean Off = TurnOffScreen.isSelected();
-        boolean On = StayAwake.isSelected();
-        boolean Offcl = OffOnClose.isSelected();
-        boolean Show = ShowTouches.isSelected();
-        boolean Fs = FullScreen.isSelected();
-        boolean Short = ShortcutMod.isSelected();
-
-        String Bit = BitrateEditable.getText();
-        String Max = MaxScreenEditable.getText();
-        String Adv = AdvancedEditable.getText();
-        String IP  = ip.getText();
-        String Port= port.getText();
-
-        if (IP!= "") {
-            try {
-                String FILE ="scripts.txt";
-                FileWriter Script = new FileWriter(FILE, true);
-                Script.write(" --tcpip="+IP);
-                Script.close();
-            } catch (Exception x) {}
-
-        } else if (Port!= "") {
-            try {
-                String FILE ="scripts.txt";
-                FileWriter Script = new FileWriter(FILE, true);
-                Script.write(" --tcpip="+IP+":"+Port);
-                Script.close();
-            } catch (Exception x) {}
-
-        }
-
-        if (Off) {
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" -S");
-                test.close();
-            }catch (Exception x) {
-
-            }
-        } if (On) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" -w");
-                test.close();
-            }catch (Exception x) {
-
-            }
-        }    if (Offcl) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" --power-off-on-close");
-                test.close();
-            }catch (Exception x) {
-
-            }
-        } if (Show) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" --show-touches");
-                test.close();
-            }catch (Exception x) {
-
-            }
-
-        } if (Fs) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" -f");
-                test.close();
-            }catch (Exception x) {
-
-            }
-
-        } if (Short) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" --shortcut-mod=lalt");
-                test.close();
-            }catch (Exception x) {
-
-            }
-        } if (Bit.equals("")){
-
-        } else if (Bit.matches("[0-9]+") && Bit.length() < 3) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" -b "+Bit+"M");
-                test.close();
-            }catch (Exception x) {
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Numbers Below 100 For Bit Rate (Numbers Only)");
-
-        } if (Max.equals("")){
-
-        } else if (Max.matches("[0-9]+") && Max.length() > 2) {
-
-            try{
-                String FILE ="scripts.txt";
-                FileWriter test = new FileWriter(FILE, true);
-                test.write(" --max-size "+Max);
-                test.close();
-            } catch (Exception x) {
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Numbers Above 99 Only For Max Size (Numbers Only)");
-        }
-
-        //Below Is The Important Stuff
-
-        ActionListener task = new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-
-                try {
-                    BufferedReader Test = new BufferedReader(new FileReader(new File("scripts.txt")));//Reads The File Where All The Changes Are Made
-                    String mods = "";
-
-                    while((mods = Test.readLine()) != null){
-                    }
-                }
-                catch(Exception e) {
-                    e.printStackTrace();}}};
-
-        Timer timer = new Timer(650 ,task);//Timer Updates Once Every 650
-        timer.setRepeats(true);
-        timer.start();
-
         try {
-            BufferedReader Test = new BufferedReader(new FileReader(new File("scripts.txt")));//Reads The File Where All The Changes Are Made
-            String mods = "";
-
-            while((mods = Test.readLine()) != null){
-                File Terminal = new File("/usr/bin/xterm");//Linux Terminal (Not Default So It Looks Weird)
-
-                if (Terminal.exists()){
-                    try {
-                        Runtime r = Runtime.getRuntime();
-                        String[] cmdArray = {"xterm", "-e", "scrcpy" + mods + " "+Adv +" ; le_exec"};//Opens Terminal And Run Scrcpy On Linux
-                        r.exec(cmdArray).waitFor();
-
-                    } catch (InterruptedException ex){
-                        ex.printStackTrace();
-
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-
-                } else { Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + mods + " "+Adv); //Opens Cmd And Runs Scrcpy With Added Scripts
-
-                    String sr = null;
-                    BufferedReader rs = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-                    while ((sr = rs.readLine()) != null) {
-
-                        PrintStream printStream = new PrintStream(new Output(DisplayOutput));
-                        System.setOut(printStream);
-                        System.out.println(sr);//Shows Progress And Potential Errors On a Field
-                        DisplayOutput.setLineWrap(true);
-
-                    }
-
-                    try {
-                        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                        String line;
-                        while (true) {
-                            line = r.readLine();
-
-                            if  (line == null) { break;
-                            }
-                        }
-                    } catch(Exception e) {e.printStackTrace();
-                    }
-                    File we = new File("scripts.txt");
-                    PrintWriter writer = new PrintWriter(we);
-                    writer.print("");//To Clear The File Used To Store Scripts...
-                    writer.close();
-                }
+            boolean Off = TurnOffScreen.isSelected();
+            boolean On = StayAwake.isSelected();
+            boolean Offcl = OffOnClose.isSelected();
+            boolean Show = ShowTouches.isSelected();
+            boolean Fs = FullScreen.isSelected();
+            boolean Short = ShortcutMod.isSelected();
+            
+            String Bit = BitrateEditable.getText();
+            String Max = MaxScreenEditable.getText();
+            String Adv = AdvancedEditable.getText();
+            String IP  = ip.getText();
+            String Port= port.getText();
+            
+            ArrayList<String> cmd = new ArrayList<>();
+            
+            if (IP!="") {
+                cmd.add(" --tcpip="+IP);}
+            else if (Port!="") {
+                cmd.add(" --tcpip="+IP+":"+Port);}
+            if(Off) cmd.add(" -S");
+            if(On) cmd.add(" -w");
+            if(Offcl) cmd.add(" --power-off-on-close");
+            if(Show) cmd.add(" --show-touches");
+            if(Fs) cmd.add(" -f");
+            if(Short) cmd.add(" --shortcut-mod=lalt");
+            if(Bit.matches("[0-9]+") && Bit.length() < 3) cmd.add("-b "+Bit+"M");
+            if(Max.matches("[0-9]+") && Max.length() > 2) cmd.add("--max-size "+Max);
+            
+            String Script = cmd.toString()
+                    .replace(",", "")
+                    .replace("[", "")
+                    .replace("]", "")
+                    .trim();
+            
+            //Below Is The Important Stuff
+            String mods = Script;
+            Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + Script + " "+Adv);
+            //Opens Cmd And Runs Scrcpy With Added Scripts
+            String sr = null;
+            BufferedReader rs = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while ((sr = rs.readLine()) != null) {
+                
+                PrintStream printStream = new PrintStream(new Output(DisplayOutput));
+                System.setOut(printStream);
+                System.out.println(sr);//Shows Progress And Potential Errors On a Field
+                DisplayOutput.setLineWrap(true);
+                
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File With Scripts Still Has Content or Not Found");//Well If This Fails Then The File That Stores Scripts Isnt Cleared
-            e.printStackTrace();
-
-        } catch (IOException e) {
-            System.out.println("Check Output Errors");//Just Incase There Is a Problem Viewing The File
-            e.printStackTrace();
-
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+         
     }//GEN-LAST:event_RunButtonActionPerformed
 
     private void MaxScreenEditableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaxScreenEditableActionPerformed
