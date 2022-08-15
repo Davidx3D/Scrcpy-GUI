@@ -40,10 +40,8 @@ public class Controller implements Initializable{
         
         ArrayList<String> cmd = new ArrayList<>();
         
-        if (IP!="") {
-            cmd.add(" --tcpip="+IP);}
-        else if (Port!="") {
-            cmd.add(" --tcpip="+IP+":"+Port);}
+        if (IP!="") { cmd.add(" --tcpip="+IP);}
+        else if (Port!="") { cmd.add(" --tcpip="+IP+":"+Port);}
         if(Off) cmd.add(" -S");
         if(On) cmd.add(" -w");
         if(Offcl) cmd.add(" --power-off-on-close");
