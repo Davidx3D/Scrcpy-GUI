@@ -31,7 +31,7 @@ public class Main extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Scrcpy-GUI By Davidx3D");
      
-        ImageIcon img = new ImageIcon("src/needed/icon.png");
+        ImageIcon img = new ImageIcon("icon.png");
         this.setIconImage(img.getImage());
         
         DisplayOutput.setEditable(false);
@@ -66,7 +66,7 @@ public class Main extends javax.swing.JFrame {
                      ShowDevices.setText("");
                      String ss = null;
                      
-                    Process p = Runtime.getRuntime().exec("src/scrcpy/cmd.exe /c adb devices");
+                    Process p = Runtime.getRuntime().exec("adb devices");
                      BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
        
                  while ((ss = r.readLine()) != null) {
@@ -100,7 +100,7 @@ public class Main extends javax.swing.JFrame {
                      
                      String ss = null;
                     
-                     Process p = Runtime.getRuntime().exec("cmd.exe /c adb devices");
+                     Process p = Runtime.getRuntime().exec("adb devices");
                      BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
        
                  while ((ss = r.readLine()) != null) {
@@ -158,24 +158,7 @@ public class Main extends javax.swing.JFrame {
                       timer.setRepeats(true);
                       timer.start();
         *
-        */
-        
-        try {
-            File Scrcpy = new File("/snap/scrcpy/current/usr/local/bin/scrcpy");
-            File Terminal = new File("/usr/bin/xterm");
-        	 
-        if (Terminal.exists()){
-             Platform.setText("Linux Detected");
-        		 
-       } else {
-	   Platform.setText("Windows Detected"); 
-
-       }
-   } 	catch(Exception e) {
-	      e.printStackTrace();
-}
-         
-   
+        */  
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -183,7 +166,6 @@ public class Main extends javax.swing.JFrame {
         Main = new javax.swing.JPanel();
         Side = new javax.swing.JPanel();
         Top = new javax.swing.JPanel();
-        Platform = new javax.swing.JLabel();
         Name = new javax.swing.JLabel();
         Description = new javax.swing.JLabel();
         Devices = new javax.swing.JScrollPane();
@@ -255,10 +237,6 @@ public class Main extends javax.swing.JFrame {
         Top.setBackground(new java.awt.Color(51, 51, 51));
         Top.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
 
-        Platform.setBackground(new java.awt.Color(204, 204, 204));
-        Platform.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        Platform.setForeground(new java.awt.Color(255, 255, 255));
-
         Name.setBackground(new java.awt.Color(0, 0, 0));
         Name.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         Name.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,13 +264,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopLayout.createSequentialGroup()
-                        .addComponent(Platform, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(TopLayout.createSequentialGroup()
                         .addComponent(Name)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Description, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(196, 196, 196))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopLayout.createSequentialGroup()
+                        .addComponent(Description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(Devices, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -303,8 +279,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Devices, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                     .addGroup(TopLayout.createSequentialGroup()
-                        .addComponent(Platform, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(Name)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Description)
@@ -980,7 +955,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane Output;
     private javax.swing.JLabel OutputLabel;
     private javax.swing.JPanel OutputPanel;
-    private javax.swing.JLabel Platform;
     private javax.swing.JButton RunButton;
     private javax.swing.JPanel ScrcpySettings;
     private javax.swing.JLabel ScreenOffLabel;
