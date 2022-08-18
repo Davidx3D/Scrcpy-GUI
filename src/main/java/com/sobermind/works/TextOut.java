@@ -1,13 +1,13 @@
 package com.sobermind.works;
 
+import javafx.scene.control.TextArea;
+
 import java.io.IOException;
 import java.io.OutputStream;
-import javafx.scene.control.TextArea;
 
  class TextOut extends OutputStream {
     private TextArea devices;
     private TextArea output;
-
     public TextOut(TextArea textArea) {
         this.devices = textArea;
         this.output = textArea;

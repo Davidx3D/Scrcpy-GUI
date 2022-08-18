@@ -1,7 +1,5 @@
 package com.sobermind.works;
 
-import com.sun.javafx.stage.EmbeddedWindow;
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -10,8 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -29,8 +25,8 @@ public class App extends Application {
 
         scene = new Scene(loadFXML("primary"), 947, 699);
         stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Scrcpy-GUI By Davidx3D");
         stage.setScene(scene);
         stage.show();
 
@@ -38,7 +34,6 @@ public class App extends Application {
         stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
         stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
     }
-
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

@@ -1,17 +1,18 @@
 package com.sobermind.works;
 
-import java.io.*;
-import java.net.URL;
 import com.android.ddmlib.AndroidDebugBridge;
 import com.android.ddmlib.IDevice;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import com.sobermind.works.Audio;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
@@ -20,28 +21,31 @@ public class Controller implements Initializable{
     @FXML private TextArea devices,output;
     @FXML private Label iplabel,applicable,portlabel;
     @FXML private RadioButton wired,wireless,bt,snd;
-    
+    @FXML private ListView lists;
+
     //Button Functions
     @FXML
     void onRunbtn() throws Exception {
-    
+
         boolean Off = offscrn.isSelected();
         boolean On = stay.isSelected();
         boolean Offcl = offcl.isSelected();
         boolean Show = showt.isSelected();
         boolean Fs = fsmode.isSelected();
         boolean Short = shortmod.isSelected();
-    
+
         String Bit = bitrate.getText();
         String Max = maxsize.getText();
         String Adv = advpanel.getText();
         String IP  = devip.getText();
         String Port= port.getText();
-        
+
         ArrayList<String> cmd = new ArrayList<>();
-        
-        if (IP!="") { cmd.add(" --tcpip="+IP);}
-        else if (Port!="") { cmd.add(" --tcpip="+IP+":"+Port);}
+
+        if (IP!="") {
+            cmd.add(" --tcpip="+IP);}
+        else if (Port!="") {
+            cmd.add(" --tcpip="+IP+":"+Port);}
         if(Off) cmd.add(" -S");
         if(On) cmd.add(" -w");
         if(Offcl) cmd.add(" --power-off-on-close");
@@ -50,15 +54,14 @@ public class Controller implements Initializable{
         if(Short) cmd.add(" --shortcut-mod=lalt");
         if(Bit.matches("[0-9]+") && Bit.length() < 3) cmd.add("-b "+Bit+"M");
         if(Max.matches("[0-9]+") && Max.length() > 2) cmd.add("--max-size "+Max);
-    
+
         String Script = cmd.toString()
                               .replace(",", "")
                               .replace("[", "")
                               .replace("]", "")
                               .trim();
-    
+
         //Below Is The Important Stuff
-        String mods = Script;
         Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + Script + " "+Adv);
         //Opens Cmd And Runs Scrcpy With Added Scripts
         String sr = null;
@@ -106,22 +109,24 @@ public class Controller implements Initializable{
     //The Code Below Uses IDevice To Check If a Device Has Been Connected Or Disconnected From The PC
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
- 
+
         AndroidDebugBridge.init(false);
         devices.setEditable(false);
         output.setEditable(false);
-    
+
         AndroidDebugBridge debugBridge = AndroidDebugBridge.createBridge("adb.exe", true);
         if (debugBridge == null) {
             System.exit(1);
         }
         AndroidDebugBridge.addDeviceChangeListener(new AndroidDebugBridge.IDeviceChangeListener() {
-            
+
             public void deviceChanged(IDevice device, int arg1) {
                 //Not Necessary For Now
             }
             public void deviceConnected(IDevice device) {
+
+
+
                 try {
                     devices.setText("");
                     String ss = null;
@@ -137,16 +142,19 @@ public class Controller implements Initializable{
                     }
                     while ((ss = r.readLine()) != null) {
                         System.out.println(ss);
+
                     }
                 }
                 catch(Exception e) {
                     e.printStackTrace();
                 }
+                lists.getItems().add(device.getSerialNumber());
             }
             public void deviceDisconnected(IDevice device) {
 
+                lists.getItems().remove(device.getSerialNumber());
                 devices.setText("");
-                devices.setText(String.format("%s Disconnected", device.getSerialNumber()));
+                devices.setText(String.format("%s Disconnected",device.getSerialNumber()));
                 try {
                     String ss = null;
                     Process p = Runtime.getRuntime().exec("cmd.exe /c adb devices");
@@ -184,4 +192,8 @@ public class Controller implements Initializable{
             Audio.SndCon();
              }
         }
+
+    public void onTest(ActionEvent actionEvent) {
+
     }
+}

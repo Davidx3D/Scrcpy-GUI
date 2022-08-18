@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="kxml2-2.3.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/target/Files/ddmlib/kxml2-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/ddmlib/kxml2-2.3.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

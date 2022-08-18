@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
@@ -92,7 +93,7 @@
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="214.0" layoutX="513.0" layoutY="418.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
          <JFXTextArea fx:id="output" focusColor="#38383800" layoutX="516.0" layoutY="418.0" prefHeight="214.0" prefWidth="411.0" unFocusColor="#38383800" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="119.0" layoutX="513.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
-         <JFXTextArea fx:id="devices" focusColor="#38383800" layoutX="516.0" layoutY="8.0" prefHeight="119.0" prefWidth="411.0" text="Please Insert Android Device" unFocusColor="#38383800" />
+         <JFXTextArea fx:id="devices" focusColor="#38383800" layoutX="516.0" layoutY="8.0" prefHeight="119.0" prefWidth="185.0" text="Please Insert Android Device" unFocusColor="#38383800" />
       <Label layoutX="98.0" layoutY="221.0" text="Scrcpy Settings">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
@@ -212,4 +213,5 @@
             <Color red="0.9868420958518982" green="0.5290570259094238" blue="0.22386695444583893" />
          </selectedColor>
       </JFXRadioButton>
+      <JFXListView fx:id="lists" layoutX="706.0" layoutY="13.0" prefHeight="113.0" prefWidth="221.0" />
       </children></AnchorPane>
