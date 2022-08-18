@@ -1,7 +1,6 @@
 package com.sobermind.works;
 
 import javafx.scene.control.TextArea;
-
 import java.io.IOException;
 import java.io.OutputStream;
 

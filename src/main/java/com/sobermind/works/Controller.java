@@ -1,18 +1,12 @@
 package com.sobermind.works;
 
-import com.android.ddmlib.AndroidDebugBridge;
-import com.android.ddmlib.IDevice;
+import com.android.ddmlib.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.control.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable{
 
@@ -42,16 +36,15 @@ public class Controller implements Initializable{
 
         ArrayList<String> cmd = new ArrayList<>();
 
-        if (IP!="") {
-            cmd.add(" --tcpip="+IP);}
-        else if (Port!="") {
-            cmd.add(" --tcpip="+IP+":"+Port);}
+        if (IP!="") { cmd.add(" --tcpip="+IP);}
+        else if (Port!="") { cmd.add(" --tcpip="+IP+":"+Port);}
         if(Off) cmd.add(" -S");
         if(On) cmd.add(" -w");
         if(Offcl) cmd.add(" --power-off-on-close");
         if(Show) cmd.add(" --show-touches");
         if(Fs) cmd.add(" -f");
         if(Short) cmd.add(" --shortcut-mod=lalt");
+        if (lists.getSelectionModel().selectedItemProperty() != null) { cmd.add(" -s"+lists.getSelectionModel().getSelectedItem());}
         if(Bit.matches("[0-9]+") && Bit.length() < 3) cmd.add("-b "+Bit+"M");
         if(Max.matches("[0-9]+") && Max.length() > 2) cmd.add("--max-size "+Max);
 
@@ -62,6 +55,7 @@ public class Controller implements Initializable{
                               .trim();
 
         //Below Is The Important Stuff
+
         Process p = Runtime.getRuntime().exec("cmd.exe /c scrcpy " + Script + " "+Adv);
         //Opens Cmd And Runs Scrcpy With Added Scripts
         String sr = null;
@@ -76,6 +70,7 @@ public class Controller implements Initializable{
         }
     @FXML
     protected  void onExitbtn(){
+
         System.exit(0);
     }
     public void onWired(ActionEvent actionEvent) {
@@ -125,8 +120,6 @@ public class Controller implements Initializable{
             }
             public void deviceConnected(IDevice device) {
 
-
-
                 try {
                     devices.setText("");
                     String ss = null;
@@ -142,7 +135,6 @@ public class Controller implements Initializable{
                     }
                     while ((ss = r.readLine()) != null) {
                         System.out.println(ss);
-
                     }
                 }
                 catch(Exception e) {
@@ -192,7 +184,6 @@ public class Controller implements Initializable{
             Audio.SndCon();
              }
         }
-
     public void onTest(ActionEvent actionEvent) {
 
     }
