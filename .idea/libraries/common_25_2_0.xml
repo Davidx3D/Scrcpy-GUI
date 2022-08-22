@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="common-25.2.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/target/Files/ddmlib/common-25.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/ddmlib/common-25.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

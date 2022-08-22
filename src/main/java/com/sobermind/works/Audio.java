@@ -2,7 +2,6 @@ package com.sobermind.works;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.util.Optional;
 
 public class Audio {
@@ -33,22 +32,18 @@ public class Audio {
         if (result.get() == ButtonType.OK){
 
             Bluetooth();
-
         }
     }
     public static void SndCon() {
 
         Alert Sndcpy = new Alert(Alert.AlertType.CONFIRMATION);
-        Sndcpy.setTitle("Bluetooth Confirmation");
-        Sndcpy.setHeaderText("Ensure Your PC/Laptop Has Bluetooth Turned On");
-        Sndcpy.setContentText("Please Ensure That Your Device Has Already Been Paired To The Computer!");
+        Sndcpy.setTitle("Sndcpy Confirmation");
+        Sndcpy.setHeaderText("Ensure Your PC Has VLC Installed");
+        Sndcpy.setContentText("Please Ensure That Your Device Is Running Android 10 Or Above!");
 
         Optional<ButtonType> result = Sndcpy.showAndWait();
         if (result.get() == ButtonType.OK){
-
         Sndcpy();
         }
-
     }
 }
-

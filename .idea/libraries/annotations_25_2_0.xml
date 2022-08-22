@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="annotations-25.2.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/target/Files/ddmlib/annotations-25.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/ddmlib/annotations-25.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
