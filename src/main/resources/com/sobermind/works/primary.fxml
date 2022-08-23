@@ -24,7 +24,7 @@
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36363600" height="126.0" layoutX="79.0" layoutY="8.0" stroke="#006bff" strokeType="INSIDE" width="860.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="549.0" layoutX="79.0" layoutY="143.0" stroke="#006bff" strokeType="INSIDE" width="860.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="684.0" layoutX="9.0" layoutY="8.0" stroke="#006bff" strokeType="INSIDE" width="62.0" />
-         <Text layoutX="89.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scrcpy-GUI v1.4.1">
+         <Text layoutX="89.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scrcpy-GUI v1.4.2">
             <font>
                <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
@@ -93,7 +93,7 @@
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#38383800" height="214.0" layoutX="513.0" layoutY="418.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
          <JFXTextArea fx:id="output" focusColor="#38383800" layoutX="516.0" layoutY="418.0" prefHeight="214.0" prefWidth="411.0" unFocusColor="#38383800" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="119.0" layoutX="513.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
-         <JFXTextArea fx:id="devices" focusColor="#38383800" layoutX="516.0" layoutY="8.0" prefHeight="119.0" prefWidth="185.0" text="Please Insert Android Device" unFocusColor="#38383800" />
+         <JFXTextArea fx:id="devices" focusColor="#38383800" layoutX="516.0" layoutY="26.0" prefHeight="101.0" prefWidth="185.0" unFocusColor="#38383800" wrapText="true" />
       <Label layoutX="98.0" layoutY="221.0" text="Scrcpy Settings">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
@@ -154,7 +154,7 @@
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font></JFXCheckBox>
-      <Label layoutX="116.0" layoutY="502.0" text="*Adds Changes Shortcut Key (Default = Left Alt)*" textFill="#fc7272">
+      <Label layoutX="116.0" layoutY="502.0" text="*Changes Shortcut Key (Default = Left Alt)*" textFill="#fc7272">
          <font>
             <Font name="Arial Rounded MT Bold" size="11.0" />
          </font>
@@ -182,7 +182,7 @@
          </font>
       </JFXButton>
       <JFXButton fx:id="ext" buttonType="RAISED" layoutX="878.0" layoutY="640.0" onAction="#onExitbtn" prefHeight="39.0" prefWidth="56.0" ripplerFill="#f84444" style="-fx-background-color: #f84444;" text="Exit" textFill="WHITE" />
-      <ImageView fitHeight="48.0" fitWidth="147.0" layoutX="92.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="48.0" fitWidth="147.0" layoutX="92.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon.png" />
          </image>
@@ -213,5 +213,20 @@
             <Color red="0.9868420958518982" green="0.5290570259094238" blue="0.22386695444583893" />
          </selectedColor>
       </JFXRadioButton>
-      <JFXListView fx:id="lists" layoutX="706.0" layoutY="13.0" prefHeight="113.0" prefWidth="221.0" />
+      <JFXListView fx:id="lists" layoutX="706.0" layoutY="31.0" prefHeight="95.0" prefWidth="221.0" />
+      <JFXCheckBox fx:id="cmdOut" checkedColor="#ff5151" layoutX="690.0" layoutY="393.0" onAction="#onDisp" text="Disable Output (Default)">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </JFXCheckBox>
+      <Label fx:id="applicable1" layoutX="708.0" layoutY="14.0" text="*Please Select Device Before Run*" textFill="#fc7272">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl" layoutX="521.0" layoutY="14.0" text="*Please Insert a Device*" textFill="#3e73e4">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="11.0" />
+         </font>
+      </Label>
       </children></AnchorPane>
