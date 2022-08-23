@@ -4,6 +4,10 @@ import javafx.scene.control.TextArea;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * Authors: Davidx3D & Asandax6
+ */
+
  class TextOut extends OutputStream {
     private TextArea devices;
     private TextArea output;
@@ -14,10 +18,5 @@ import java.io.OutputStream;
     public void write(int b) throws IOException {
         
         devices.appendText(String.valueOf((char)b));
-    }
-    public static void Out(){
-
-
-
     }
 }
