@@ -3,10 +3,15 @@
 This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 ## Update To v1.4.2 (JavaFX Release)
 
+```N.B: Options For Wireless Mode Will Only Appear When Wireless Is Selected* ```
+
 ![Screenshot (57)](https://user-images.githubusercontent.com/49514654/186616744-e444da74-a15d-4794-b10b-aff785847dd4.png)
 
 # Feature Update
+![Screenshot (58)](https://user-images.githubusercontent.com/49514654/186627690-0d050af7-0ce1-4dbe-943e-7df03430f114.png)
+
 ```
+- Added Wireless Functionality (*NEW)
 - Turn Off Screen
 - Stay Awake
 - No Control (*Removed*)
@@ -16,11 +21,11 @@ This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 - Shortcut Mod (Default Is Left Alt...Sorry*)
 - Max Bitrate (1-99MB)
 - Max Screen Size (Any Above 100)
-- Connected Devices View (Also Shows Disconnected Device Serial Number)
+- Connected Devices View (Also Shows Disconnected Device Serial Number *NEW*)
 - Advanced Panel (Add Custom Settings Not Provided By Default)
 - CMD Output Field (Buggy But Works)
-- Audio Capture (Bluetooth SNK* & Sndcpy*)
-- Select Single Device Among Multiple Devices (*Must Select Device Before Running*)
+- Audio Capture (Bluetooth SNK* & Sndcpy*)(*IMPROVED*)
+- Select Single Device Among Multiple Devices (*Must Select Device Before Running*)(*NEW*)
 ```
 
 # Requirements
