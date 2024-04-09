@@ -1,4 +1,4 @@
-# Scrcpy-GUI (v1.4.2 Released)
+# Scrcpy-GUI (DEPRECATED)
 
 This Project Uses [**Scrcpy** ](https://github.com/Genymobile/scrcpy)
 ## Update To v1.4.2 (JavaFX Release)
